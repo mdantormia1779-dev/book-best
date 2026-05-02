@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Navlink from "../Navlink/Navlink";
 import avatar from "@/app/assets/user.png";
 import { FaBookOpen } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
@@ -26,8 +27,8 @@ const Navbar = () => {
         },
       });
     } catch (error) {
-      console.error(error);
-      alert("Logout failed");
+      toast("Logout failed");
+
     }
   };
 

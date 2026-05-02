@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaGoogle } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -38,7 +39,6 @@ const RegisterPage = () => {
         email,
         password,
         image,
-        // ❌ callbackURL REMOVE করা হয়েছে
       });
 
       if (error) {
@@ -46,7 +46,6 @@ const RegisterPage = () => {
         return;
       }
 
-      // 🔥 IMPORTANT: signup এর পর logout
       await authClient.signOut();
 
       // redirect to login
@@ -54,7 +53,7 @@ const RegisterPage = () => {
       router.refresh();
 
     } catch (err) {
-      console.error(err);
+     toast(err);
       setErrorMsg("Something went wrong!");
     } finally {
       setLoading(false);

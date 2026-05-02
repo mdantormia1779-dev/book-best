@@ -1,8 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const BookCard = ({ book }) => {
+  const router = useRouter();
+  const { data: session } = authClient.useSession();
+
+  const handleView = () => {
+    if (!session?.user) {
+      // ❌ not logged in → go login
+      router.push("/login");
+    } else {
+      // ✅ logged in → go details
+      router.push(`/book/${book.id}`);
+    }
+  };
+
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 
       shadow-sm hover:shadow-xl transition-all duration-300">
@@ -27,13 +44,13 @@ const BookCard = ({ book }) => {
           by {book.author}
         </p>
 
-        {/* Button */}
-        <Link
-          href={`/book/${book.id}`}
-          className="mt-4 w-full block bg-blue-500 text-white text-center py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+        {/*  Protected Button */}
+        <button
+          onClick={handleView}
+          className="mt-4 w-full bg-blue-500 text-white text-center py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
         >
           View Details
-        </Link>
+        </button>
       </div>
     </div>
   );
