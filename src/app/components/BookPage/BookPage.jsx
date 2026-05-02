@@ -16,8 +16,6 @@ const BookPage = () => {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-6">📚 Books</h1>
-
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {book.slice(0, 4).map((book) => (
           <BookCard key={book.id} book={book} />

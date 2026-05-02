@@ -1,5 +1,6 @@
 import React from "react";
 import BookPage from "../BookPage/BookPage";
+import Link from "next/link";
 
 const FeaturedBooks = () => {
   return (
@@ -7,9 +8,9 @@ const FeaturedBooks = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-extrabold">Featured Books</h1>
 
-        <button className="btn text-blue-600 font-bold hover:underline">
+        <Link href={"/allbook"} className="btn text-blue-600 font-bold hover:underline">
           View All
-        </button>
+        </Link>
       </div>
 
       <BookPage />
