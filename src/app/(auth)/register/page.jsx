@@ -7,15 +7,18 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
-  const signIn = async () => {
-  const data = await authClient.signIn.social({
-    provider: "google",
-  });
-};
-
   const router = useRouter();
+
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  //  Google login
+  const signIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
 
   const submitData = async (e) => {
     e.preventDefault();
@@ -28,25 +31,30 @@ const RegisterPage = () => {
     const email = form.email.value;
     const image = form.image.value;
     const password = form.password.value;
-    console.log("submit",name,email,image,password);
 
     try {
-      const { data, error } = await authClient.signUp.email({
+      const { error } = await authClient.signUp.email({
         name,
         email,
         password,
         image,
-        callbackURL: "/",
+        // ❌ callbackURL REMOVE করা হয়েছে
       });
-      console.log(data,"database");
 
       if (error) {
         setErrorMsg(error.message || "Signup failed");
         return;
       }
 
+      // 🔥 IMPORTANT: signup এর পর logout
+      await authClient.signOut();
+
+      // redirect to login
       router.push("/login");
+      router.refresh();
+
     } catch (err) {
+      console.error(err);
       setErrorMsg("Something went wrong!");
     } finally {
       setLoading(false);
@@ -64,12 +72,39 @@ const RegisterPage = () => {
 
         <form className="space-y-4" onSubmit={submitData}>
 
-          <input name="name" required placeholder="Name" className="input input-bordered w-full" />
-          <input name="email" required type="email" placeholder="Email" className="input input-bordered w-full" />
-          <input name="image" required placeholder="Photo URL" className="input input-bordered w-full" />
-          <input name="password" required type="password" placeholder="Password" className="input input-bordered w-full" />
+          <input
+            name="name"
+            required
+            placeholder="Name"
+            className="input input-bordered w-full"
+          />
 
-          {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
+          <input
+            name="email"
+            required
+            type="email"
+            placeholder="Email"
+            className="input input-bordered w-full"
+          />
+
+          <input
+            name="image"
+            required
+            placeholder="Photo URL"
+            className="input input-bordered w-full"
+          />
+
+          <input
+            name="password"
+            required
+            type="password"
+            placeholder="Password"
+            className="input input-bordered w-full"
+          />
+
+          {errorMsg && (
+            <p className="text-red-500 text-sm">{errorMsg}</p>
+          )}
 
           <button disabled={loading} className="btn btn-primary w-full">
             {loading ? "Registering..." : "Register"}
@@ -78,7 +113,10 @@ const RegisterPage = () => {
 
         <div className="divider my-6">OR</div>
 
-        <button onClick={signIn} className="btn btn-outline w-full flex items-center gap-2">
+        <button
+          onClick={signIn}
+          className="btn btn-outline w-full flex items-center gap-2"
+        >
           <FaGoogle />
           Continue with Google
         </button>

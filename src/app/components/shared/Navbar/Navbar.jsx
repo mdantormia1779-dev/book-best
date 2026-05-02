@@ -41,7 +41,7 @@ const Navbar = () => {
       <ul className="flex items-center mx-auto space-x-5 font-bold">
         <Navlink href="/">Home</Navlink>
         <Navlink href="/allbook">All Books</Navlink>
-        <Navlink href="/career">My Profile</Navlink>
+        <Navlink href="/profile">My Profile</Navlink>
       </ul>
 
       {/* Auth section */}

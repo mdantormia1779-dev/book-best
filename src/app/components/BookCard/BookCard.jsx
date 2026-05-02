@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const BookCard = ({ book }) => {
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 
-      shadow-sm hover:shadow-lg transition-all duration-300">
+      shadow-sm hover:shadow-xl transition-all duration-300">
 
       {/* Image */}
       <div className="relative w-full h-96 overflow-hidden">
@@ -27,10 +28,12 @@ const BookCard = ({ book }) => {
         </p>
 
         {/* Button */}
-        <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-xl 
-          hover:bg-blue-600 transition-colors duration-200">
+        <Link
+          href={`/book/${book.id}`}
+          className="mt-4 w-full block bg-blue-500 text-white text-center py-2 px-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

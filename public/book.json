@@ -3,7 +3,7 @@
     "id": 1,
     "title": "The Future of AI",
     "author": "John Doe",
-    "description": "An introduction to artificial intelligence and its impact on the future.",
+    "description": "An in-depth introduction to artificial intelligence, exploring how AI is transforming industries, reshaping the job market, and influencing our everyday lives. This book also discusses future possibilities, ethical challenges, and the role of humans in an AI-driven world.",
     "category": "Tech",
     "available_quantity": 5,
     "image_url": "https://i.ibb.co/qLT2BbbM/download-1.jpg"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Journey to Mars",
     "author": "Jane Smith",
-    "description": "Explore the possibilities of human life on Mars.",
+    "description": "A fascinating exploration of the possibilities of human life on Mars. From scientific discoveries to technological challenges, this book covers everything about space travel, colonization, and the dream of making Mars a second home for humanity.",
     "category": "Science",
     "available_quantity": 3,
     "image_url": "https://i.ibb.co/wZhn64JB/download-2.jpg"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "Mystery of the Night",
     "author": "Alex Ray",
-    "description": "A suspenseful story that unfolds under the cover of darkness.",
+    "description": "A gripping and suspenseful story that unfolds under the cover of darkness. Filled with unexpected twists, hidden secrets, and intense moments, this novel keeps readers on the edge of their seats until the very end.",
     "category": "Story",
     "available_quantity": 7,
     "image_url": "https://i.ibb.co/0RRsnvSF/download-3.jpg"
@@ -30,7 +30,7 @@
     "id": 4,
     "title": "Learning JavaScript",
     "author": "Chris Evans",
-    "description": "A beginner-friendly guide to mastering JavaScript.",
+    "description": "A beginner-friendly yet comprehensive guide to mastering JavaScript. This book explains core concepts, practical examples, and modern development techniques to help readers build real-world web applications with confidence.",
     "category": "Tech",
     "available_quantity": 4,
     "image_url": "https://i.ibb.co/DHNLmdzW/download-4.jpg"
@@ -39,7 +39,7 @@
     "id": 5,
     "title": "The Solar System",
     "author": "Neil Carter",
-    "description": "A complete guide to planets and celestial bodies.",
+    "description": "A complete and engaging guide to the solar system, covering planets, moons, asteroids, and other celestial bodies. Learn about space exploration, scientific discoveries, and the mysteries that still remain unsolved.",
     "category": "Science",
     "available_quantity": 6,
     "image_url": "https://i.ibb.co/TxPJnB69/download-5.jpg"
@@ -48,7 +48,7 @@
     "id": 6,
     "title": "Lost in the Jungle",
     "author": "Sara Lee",
-    "description": "A thrilling survival story deep in the jungle.",
+    "description": "A thrilling survival story set deep in a dangerous jungle. Follow the journey of a lost explorer as they face wild animals, harsh conditions, and their own fears while trying to find a way back to safety.",
     "category": "Story",
     "available_quantity": 2,
     "image_url": "https://i.ibb.co/PZ1hLTh2/download.jpg"
@@ -57,7 +57,7 @@
     "id": 7,
     "title": "Web Development Basics",
     "author": "Mark Henry",
-    "description": "Learn the fundamentals of web development.",
+    "description": "An essential guide to understanding the fundamentals of web development. Learn HTML, CSS, JavaScript, and modern tools to build responsive and dynamic websites from scratch.",
     "category": "Tech",
     "available_quantity": 8,
     "image_url": "https://i.ibb.co/RphKLYLN/download.png"
@@ -66,7 +66,7 @@
     "id": 8,
     "title": "Physics Made Easy",
     "author": "Albert Green",
-    "description": "Simplified concepts of physics for beginners.",
+    "description": "A simplified and easy-to-understand introduction to physics concepts. Perfect for beginners, this book explains complex topics using real-life examples and clear explanations.",
     "category": "Science",
     "available_quantity": 5,
     "image_url": "https://i.ibb.co/0yx8Ds4g/images-1.jpg"
@@ -75,7 +75,7 @@
     "id": 9,
     "title": "The Hidden Treasure",
     "author": "Emily Rose",
-    "description": "A story of adventure and hidden riches.",
+    "description": "An adventurous story filled with mystery, danger, and excitement. Follow the journey of brave explorers searching for hidden riches while overcoming challenges and uncovering secrets.",
     "category": "Story",
     "available_quantity": 9,
     "image_url": "https://i.ibb.co/2Qm2WdS/images-2.jpg"
@@ -84,7 +84,7 @@
     "id": 10,
     "title": "React for Beginners",
     "author": "David Kim",
-    "description": "Step-by-step guide to building apps with React.",
+    "description": "A step-by-step guide to building modern web applications using React. Learn components, state management, hooks, and best practices through practical examples and projects.",
     "category": "Tech",
     "available_quantity": 6,
     "image_url": "https://i.ibb.co/gMZ1wNM2/images-3.jpg"
@@ -93,7 +93,7 @@
     "id": 11,
     "title": "The Human Body",
     "author": "Dr. Anna White",
-    "description": "Understand how the human body works.",
+    "description": "An informative guide to understanding how the human body works. Explore organs, systems, and biological processes in a simple and engaging way.",
     "category": "Science",
     "available_quantity": 4,
     "image_url": "https://i.ibb.co/0yPHHz5B/images-4.jpg"
@@ -102,7 +102,7 @@
     "id": 12,
     "title": "A Tale of Two Cities",
     "author": "Charles Dickens",
-    "description": "A classic story set during the French Revolution.",
+    "description": "A timeless classic set during the French Revolution, exploring themes of love, sacrifice, and redemption. This novel paints a vivid picture of two cities and the lives intertwined between them.",
     "category": "Story",
     "available_quantity": 3,
     "image_url": "https://i.ibb.co/yBR4ztQw/images.jpg"
