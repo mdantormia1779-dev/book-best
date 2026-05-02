@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of AI",
+    "author": "John Doe",
+    "description": "An introduction to artificial intelligence and its impact on the future.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://i.ibb.co/qLT2BbbM/download-1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Journey to Mars",
+    "author": "Jane Smith",
+    "description": "Explore the possibilities of human life on Mars.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://i.ibb.co/wZhn64JB/download-2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Mystery of the Night",
+    "author": "Alex Ray",
+    "description": "A suspenseful story that unfolds under the cover of darkness.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://i.ibb.co/0RRsnvSF/download-3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Learning JavaScript",
+    "author": "Chris Evans",
+    "description": "A beginner-friendly guide to mastering JavaScript.",
+    "category": "Tech",
+    "available_quantity": 4,
+    "image_url": "https://i.ibb.co/DHNLmdzW/download-4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Solar System",
+    "author": "Neil Carter",
+    "description": "A complete guide to planets and celestial bodies.",
+    "category": "Science",
+    "available_quantity": 6,
+    "image_url": "https://i.ibb.co/TxPJnB69/download-5.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Lost in the Jungle",
+    "author": "Sara Lee",
+    "description": "A thrilling survival story deep in the jungle.",
+    "category": "Story",
+    "available_quantity": 2,
+    "image_url": "https://i.ibb.co/PZ1hLTh2/download.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Web Development Basics",
+    "author": "Mark Henry",
+    "description": "Learn the fundamentals of web development.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://i.ibb.co/RphKLYLN/download.png"
+  },
+  {
+    "id": 8,
+    "title": "Physics Made Easy",
+    "author": "Albert Green",
+    "description": "Simplified concepts of physics for beginners.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://i.ibb.co/0yx8Ds4g/images-1.jpg"
+  },
+  {
+    "id": 9,
+    "title": "The Hidden Treasure",
+    "author": "Emily Rose",
+    "description": "A story of adventure and hidden riches.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://i.ibb.co/2Qm2WdS/images-2.jpg"
+  },
+  {
+    "id": 10,
+    "title": "React for Beginners",
+    "author": "David Kim",
+    "description": "Step-by-step guide to building apps with React.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://i.ibb.co/gMZ1wNM2/images-3.jpg"
+  },
+  {
+    "id": 11,
+    "title": "The Human Body",
+    "author": "Dr. Anna White",
+    "description": "Understand how the human body works.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://i.ibb.co/0yPHHz5B/images-4.jpg"
+  },
+  {
+    "id": 12,
+    "title": "A Tale of Two Cities",
+    "author": "Charles Dickens",
+    "description": "A classic story set during the French Revolution.",
+    "category": "Story",
+    "available_quantity": 3,
+    "image_url": "https://i.ibb.co/yBR4ztQw/images.jpg"
+  }
+]

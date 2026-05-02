@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Silent Reader",
+    "author": "James Carter",
+    "description": "A mysterious journey of a man who discovers hidden secrets inside books.",
+    "category": "Story",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/id/8231856-L.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Mastering JavaScript",
+    "author": "John Smith",
+    "description": "A complete guide to modern JavaScript development and best practices.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://covers.openlibrary.org/b/id/10523338-L.jpg"
+  },
+  {
+    "id": 3,
+    "title": "The Quantum World",
+    "author": "Dr. Emily Stone",
+    "description": "An introduction to quantum physics and the mysteries of the universe.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://covers.openlibrary.org/b/id/9875321-L.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Lost in the Forest",
+    "author": "Anna Brown",
+    "description": "A thrilling survival story of a group lost in a dangerous forest.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/id/8773275-L.jpg"
+  },
+  {
+    "id": 5,
+    "title": "React for Beginners",
+    "author": "Michael Lee",
+    "description": "Learn React.js step by step and build modern web applications.",
+    "category": "Tech",
+    "available_quantity": 10,
+    "image_url": "https://covers.openlibrary.org/b/id/10594765-L.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Space Exploration",
+    "author": "David Wilson",
+    "description": "Discover the history and future of space missions and discoveries.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://covers.openlibrary.org/b/id/9251996-L.jpg"
+  },
+  {
+    "id": 7,
+    "title": "The Hidden Treasure",
+    "author": "Sarah Johnson",
+    "description": "A group of friends embark on a journey to find a legendary treasure.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://covers.openlibrary.org/b/id/8228691-L.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Node.js in Action",
+    "author": "Chris Martin",
+    "description": "Build scalable backend applications using Node.js and Express.",
+    "category": "Tech",
+    "available_quantity": 9,
+    "image_url": "https://covers.openlibrary.org/b/id/10523345-L.jpg"
+  },
+  {
+    "id": 9,
+    "title": "The Human Brain",
+    "author": "Dr. Lisa Ray",
+    "description": "Explore how the human brain works and processes information.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/id/8401234-L.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Journey to the Unknown",
+    "author": "Robert King",
+    "description": "An adventurous tale of exploring uncharted lands and mysteries.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/id/8235112-L.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Next.js Essentials",
+    "author": "Daniel Green",
+    "description": "Learn how to build fast and scalable web apps using Next.js.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://covers.openlibrary.org/b/id/10523360-L.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Climate Change Basics",
+    "author": "Dr. Henry Adams",
+    "description": "Understand the causes and effects of climate change on Earth.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://covers.openlibrary.org/b/id/8765432-L.jpg"
+  }
+]

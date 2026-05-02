@@ -33,14 +33,14 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center container mx-auto py-4">
-      <div className="flex items-center text-3xl gap-4">
+      <Link href={"/"} className="flex items-center text-3xl gap-4">
         <FaBookOpen className="text-blue-500"/>
         <h1 className="text-3xl font-extrabold text-black">Book<span className="text-blue-500">Nest</span></h1>
-      </div>
+      </Link>
       {/* Nav links */}
       <ul className="flex items-center mx-auto space-x-5 font-bold">
         <Navlink href="/">Home</Navlink>
-        <Navlink href="/about">All Books</Navlink>
+        <Navlink href="/allbooks">All Books</Navlink>
         <Navlink href="/career">My Profile</Navlink>
       </ul>
 

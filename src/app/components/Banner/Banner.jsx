@@ -29,7 +29,7 @@ const Banner = () => {
             Borrow, read, and discover your next favorite book.
           </p>
 
-          <Link href="/books">
+          <Link href="/allbooks">
             <button className="btn btn-primary">
               Browse Now
             </button>
