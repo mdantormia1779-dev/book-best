@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Banner = () => {
   return (
-    <div className="hero min-h-[80vh] bg-base-200">
+    <div className="hero py-4 md:min-h-[80vh] bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         
         {/* Image */}

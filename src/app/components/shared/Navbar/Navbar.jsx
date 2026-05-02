@@ -1,78 +1,134 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Navlink from "../Navlink/Navlink";
 import avatar from "@/app/assets/user.png";
-import { FaBookOpen } from "react-icons/fa";
+import { FaBookOpen, FaBars, FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
-
 
 const Navbar = () => {
   const { data } = authClient.useSession();
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const user = data?.user;
 
   const handleLogout = async () => {
     try {
-      await authClient.signOut({
-        fetchOptions: {
-          onSuccess: () => {
-            router.push("/login");
-          },
-        },
-      });
+      await authClient.signOut();
+      toast.success("Logged out successfully ");
+      router.push("/login");
+      router.refresh();
     } catch (error) {
-      toast("Logout failed");
-
+      toast.error("Logout failed ");
     }
   };
 
   return (
-    <div className="flex justify-between items-center container mx-auto py-4">
-      <Link href={"/"} className="flex items-center text-3xl gap-4">
-        <FaBookOpen className="text-blue-500"/>
-        <h1 className="text-3xl font-extrabold text-black">Book<span className="text-blue-500">Nest</span></h1>
-      </Link>
-      {/* Nav links */}
-      <ul className="flex items-center mx-auto space-x-5 font-bold">
-        <Navlink href="/">Home</Navlink>
-        <Navlink href="/allbook">All Books</Navlink>
-        <Navlink href="/profile">My Profile</Navlink>
-      </ul>
+    <div className="bg-white shadow-md">
+      <div className="flex justify-between items-center container mx-auto px-4 py-4">
 
-      {/* Auth section */}
-      <div className="flex items-center gap-4">
+        {/*  Logo */}
+        <Link href="/" className="flex items-center gap-2 text-xl md:text-2xl font-bold">
+          <FaBookOpen className="text-blue-500" />
+          <span>
+            Book<span className="text-blue-500">Nest</span>
+          </span>
+        </Link>
 
-        <p className="font-bold">{user?.name}</p>
+        {/*  Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-6 font-semibold">
+          <Navlink href="/">Home</Navlink>
+          <Navlink href="/allbook">All Books</Navlink>
+          <Navlink href="/profile">My Profile</Navlink>
+        </ul>
 
-        <Image
-          className="rounded-full"
-          src={user?.image || avatar}
-          alt="User avatar"
-          width={50}
-          height={50}
-        />
+        {/*  Right Section */}
+        <div className="hidden md:flex items-center gap-3">
 
-        {user ? (
-          <button
-            onClick={handleLogout}
-            className="btn bg-blue-500 text-white"
-          >
-            Logout
-          </button>
-        ) : (
-          <Link href="/login">
-            <button className="btn bg-purple-500 text-white">
-              Login
+          {user && (
+            <>
+              <p className="font-medium">{user.name}</p>
+
+              <Image
+                className="rounded-full"
+                src={user?.image || avatar}
+                alt="User avatar"
+                width={40}
+                height={40}
+              />
+            </>
+          )}
+
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="btn bg-blue-500 text-white px-4 py-1 rounded-lg"
+            >
+              Logout
             </button>
-          </Link>
-        )}
+          ) : (
+            <Link href="/login">
+              <button className="btn bg-purple-500 text-white px-4 py-1 rounded-lg">
+                Login
+              </button>
+            </Link>
+          )}
+        </div>
+
+        {/*  Mobile Menu Button */}
+        <button
+          className="md:hidden text-xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
+
+      {/*  Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md px-4 pb-4 space-y-3 space-x-4">
+
+          <Navlink href="/">Home</Navlink>
+          <Navlink href="/allbook">All Books</Navlink>
+          <Navlink href="/profile">My Profile</Navlink>
+
+          <div className="border-t pt-3 flex flex-col gap-3">
+
+            {user && (
+              <div className="flex items-center gap-2">
+                <Image
+                  className="rounded-full"
+                  src={user?.image || avatar}
+                  alt="User avatar"
+                  width={35}
+                  height={35}
+                />
+                <p>{user.name}</p>
+              </div>
+            )}
+
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="btn bg-blue-500 text-white w-full"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link href="/login">
+                <button className="btn bg-purple-500 text-white w-full">
+                  Login
+                </button>
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
