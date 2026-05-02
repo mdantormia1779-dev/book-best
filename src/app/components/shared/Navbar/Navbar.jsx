@@ -9,6 +9,7 @@ import Navlink from "../Navlink/Navlink";
 import avatar from "@/app/assets/user.png";
 import { FaBookOpen, FaBars, FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
+import 'animate.css';
 
 const Navbar = () => {
   const { data } = authClient.useSession();
@@ -32,7 +33,7 @@ const Navbar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="bg-white shadow-sm sticky top-0 z-50">
+    <div className="bg-white shadow-sm sticky top-0 z-50 animate__animated animate__fadeInDown">
       <div className="flex justify-between items-center container mx-auto px-4 py-4">
 
         {/* Logo */}

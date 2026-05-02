@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import 'animate.css';
 
 const Banner = () => {
   return (
@@ -8,7 +9,7 @@ const Banner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         
         {/* Image */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 animate__animated animate__fadeInRight">
           <Image
             src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
             alt="Books"
@@ -19,7 +20,7 @@ const Banner = () => {
         </div>
 
         {/* Text Content */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 animate__animated animate__fadeInLeft">
           <h1 className="text-4xl md:text-5xl font-bold">
             Find Your Next Read
           </h1>
