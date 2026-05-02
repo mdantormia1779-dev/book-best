@@ -3,7 +3,8 @@
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const ProfilePage = () => {
   const { data, isPending } = authClient.useSession();
@@ -11,129 +12,154 @@ const ProfilePage = () => {
 
   const user = data?.user;
 
-  //  redirect if not logged in
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name || "");
+      setImage(user.image || "");
+    }
+  }, [user]);
+
+  //  redirect
   useEffect(() => {
     if (!isPending && !user) {
       router.push("/login");
     }
   }, [user, isPending, router]);
 
-  //  loading state
+  //  loading
   if (isPending) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-gray-500">Loading profile...</p>
+        <p>Loading...</p>
       </div>
     );
   }
 
-  //  not logged in (fallback UI)
-  if (!user) {
-    return (
-      <div className="flex flex-col justify-center items-center h-screen gap-4">
-        <p className="text-red-500 font-semibold">
-          User not logged in
-        </p>
+  if (!user) return null;
 
-        <button
-          onClick={() => router.push("/login")}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-        >
-          Go to Login
-        </button>
-      </div>
-    );
-  }
+  //  update handler
+  const handleUpdate = async (e) => {
+    e.preventDefault();
 
-  //  logged in → show profile
+    try {
+      //  better-auth update (if supported)
+      const { error } = await authClient.updateUser({
+        name,
+        image,
+      });
+
+      if (error) {
+        toast.error("Update failed ");
+        return;
+      }
+
+      toast.success("Profile updated successfully ");
+
+      // close modal
+      document.getElementById("my_modal_5").close();
+
+      router.refresh();
+
+    } catch (err) {
+      toast.error("Something went wrong!");
+    }
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen p-6 md:p-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-6">
 
-          {/* 👤 Left Sidebar */}
-          <div className="col-span-12 md:col-span-3 bg-white p-6 rounded-2xl shadow">
-            <div className="flex flex-col items-center">
+        {/* 👤 Left */}
+        <div className="col-span-12 md:col-span-3 bg-white p-6 rounded-2xl shadow text-center">
+          <Image
+            src={user.image || "/user.png"}
+            alt="profile"
+            width={96}
+            height={96}
+            className="rounded-full mx-auto"
+          />
 
-              <Image
-                src={user.image || "/user.png"}
-                alt="profile"
-                width={96}
-                height={96}
-                className="rounded-full"
-              />
+          <h1 className="font-bold mt-4">{user.name}</h1>
+          <p className="text-sm text-gray-500">{user.email}</p>
+        </div>
 
-              <h1 className="font-bold mt-4 text-lg">
-                {user.name}
-              </h1>
+        {/*  Middle */}
+        <div className="col-span-12 md:col-span-6 bg-white p-6 rounded-2xl shadow">
 
-              <p className="text-gray-500 text-sm">
-                {user.email}
-              </p>
-            </div>
-          </div>
+          <h1 className="text-xl font-bold mb-4">Profile Information</h1>
+          <hr className="mb-4" />
 
-          {/* 📖 Middle Section */}
-          <div className="col-span-12 md:col-span-6 bg-white p-6 rounded-2xl shadow">
-
-            <h1 className="text-xl font-bold mb-4">
-              Profile Information
-            </h1>
-
-            <hr className="mb-4" />
-
-            <div className="space-y-4">
-
-              <div>
-                <p className="text-gray-500 text-sm">User ID</p>
-                <p className="font-medium">{user.id}</p>
-              </div>
-
-              <div>
-                <p className="text-gray-500 text-sm">Name</p>
-                <p className="font-medium">{user.name}</p>
-              </div>
-
-              <div>
-                <p className="text-gray-500 text-sm">Email</p>
-                <p className="font-medium">{user.email}</p>
-              </div>
-
-              <div>
-                <p className="text-gray-500 text-sm">Member Since</p>
-                <p className="font-medium">
-                  {user.createdAt
-                    ? new Date(user.createdAt).toDateString()
-                    : "N/A"}
-                </p>
-              </div>
-
-              <div>
-                <p className="text-gray-500 text-sm">Total Borrowed Books</p>
-                <p className="font-medium">5</p>
-              </div>
-
-            </div>
-
-            <button className="mt-6 w-full py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition">
-              Update Information
-            </button>
-          </div>
-
-          {/*  Right Section */}
-          <div className="col-span-12 md:col-span-3 bg-white p-6 rounded-2xl shadow">
-
-            <h1 className="text-lg font-bold mb-4">
-              Borrowed Books
-            </h1>
-
-            <p className="text-sm text-gray-500">
-              No data connected yet (API pending)
+          <div className="space-y-4">
+            <p><b>ID:</b> {user.id}</p>
+            <p><b>Name:</b> {user.name}</p>
+            <p><b>Email:</b> {user.email}</p>
+            <p>
+              <b>Member Since:</b>{" "}
+              {user.createdAt
+                ? new Date(user.createdAt).toDateString()
+                : "N/A"}
             </p>
-
           </div>
+
+          {/*  OPEN MODAL BUTTON */}
+          <button
+            className="mt-6 w-full py-2 bg-blue-500 text-white rounded-xl"
+            onClick={() => document.getElementById("my_modal_5").showModal()}
+          >
+            Update Information
+          </button>
+
+          {/*  MODAL */}
+          <dialog id="my_modal_5" className="modal">
+            <div className="modal-box">
+
+              <h3 className="font-bold text-lg mb-4">
+                Update Profile
+              </h3>
+
+              <form onSubmit={handleUpdate} className="space-y-4">
+
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Name"
+                  className="input input-bordered w-full"
+                />
+
+                <input
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  placeholder="Image URL"
+                  className="input input-bordered w-full"
+                />
+
+                <button className="btn btn-primary w-full">
+                  Save Changes
+                </button>
+              </form>
+
+              <div className="modal-action">
+                <form method="dialog">
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+
+            </div>
+          </dialog>
 
         </div>
+
+        {/*  Right */}
+        <div className="col-span-12 md:col-span-3 bg-white p-6 rounded-2xl shadow">
+          <h1 className="font-bold mb-4">Borrowed Books</h1>
+          <p className="text-sm text-gray-500">
+            No data connected yet
+          </p>
+        </div>
+
       </div>
     </div>
   );
