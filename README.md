@@ -6,8 +6,8 @@ This application digitizes the traditional library experience, allowing users to
 
 ---
 
-##  Live Demo
-🔗 https://your-live-site.vercel.app](https://book-best-xjen.vercel.app
+##  Live Link
+https://book-best-xjen.vercel.app/
 
 ---
 
