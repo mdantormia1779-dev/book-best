@@ -22,7 +22,7 @@ const Banner = () => {
         {/* Text Content */}
         <div className="w-full lg:w-1/2 animate__animated animate__fadeInLeft">
           <h1 className="text-4xl md:text-5xl font-bold">
-            Find Your Next Read
+            {/* Find Your Next Read */}
           </h1>
 
           <p className="py-6 text-gray-600">
